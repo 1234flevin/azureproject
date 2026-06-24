@@ -1,0 +1,15 @@
+{
+	"name": "DFAzureDataFactoryNew",
+	"properties": {
+		"trustModeClaimForMi": {
+			"value": "Disabled",
+			"editable": true
+		}
+	},
+	"location": "eastus",
+	"identity": {
+		"type": "SystemAssigned",
+		"principalId": "48b4ee79-ea67-427d-9cea-103e9ee81dca",
+		"tenantId": "0eac4b0d-94bb-4342-9d81-67bf85443527"
+	}
+}
