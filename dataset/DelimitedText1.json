@@ -5,12 +5,20 @@
 			"referenceName": "HTTP_Git",
 			"type": "LinkedServiceReference"
 		},
+		"parameters": {
+			"load_flag": {
+				"type": "string"
+			}
+		},
 		"annotations": [],
 		"type": "DelimitedText",
 		"typeProperties": {
 			"location": {
 				"type": "HttpServerLocation",
-				"relativeUrl": "1234flevin/azureproject/refs/heads/main/factory/SalesData.csv"
+				"relativeUrl": {
+					"value": "1234flevin/azureproject/refs/heads/main/factory/@{dataset().load_flag}",
+					"type": "Expression"
+				}
 			},
 			"columnDelimiter": ",",
 			"escapeChar": "\\",
