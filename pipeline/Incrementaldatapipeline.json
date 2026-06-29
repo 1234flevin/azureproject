@@ -5,7 +5,20 @@
 			{
 				"name": "Copy data1",
 				"type": "Copy",
-				"dependsOn": [],
+				"dependsOn": [
+					{
+						"activity": "lastload",
+						"dependencyConditions": [
+							"Succeeded"
+						]
+					},
+					{
+						"activity": "currentload",
+						"dependencyConditions": [
+							"Succeeded"
+						]
+					}
+				],
 				"policy": {
 					"timeout": "0.12:00:00",
 					"retry": 0,
@@ -57,9 +70,11 @@
 					"secureOutput": false,
 					"secureInput": false
 				},
+				"userProperties": [],
 				"typeProperties": {
 					"source": {
 						"type": "AzureSqlSource",
+						"sqlReaderQuery": "select max(Date_ID) as maxdata from source_data",
 						"queryTimeout": "02:00:00",
 						"partitionOption": "None"
 					},
@@ -69,7 +84,8 @@
 						"parameters": {
 							"tablename": "source_data"
 						}
-					}
+					},
+					"firstRowOnly": false
 				}
 			}
 		],
