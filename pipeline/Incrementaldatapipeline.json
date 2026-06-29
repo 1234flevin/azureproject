@@ -152,7 +152,7 @@
 					"storedProcedureParameters": {
 						"lastload": {
 							"value": {
-								"value": "@activity('currentload').output.value[0].max_date",
+								"value": "@activity('currentload').output.value[0].maxdata",
 								"type": "Expression"
 							},
 							"type": "String"
